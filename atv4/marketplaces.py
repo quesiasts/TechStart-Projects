@@ -15,5 +15,5 @@ class Category:
 def categorias():
     print('Categorias')
 
-    for j in categorias:
-        print(j)
+    for c in Category:
+        print(c)
