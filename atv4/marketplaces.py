@@ -1,24 +1,33 @@
-class Marketplaces:
-    marketplaces = [
-                            'AM': 'Amazon',
-                            'B2W': 'B2W',
-                            'ML': 'Mercado Livre',
-                            'MG': 'Magalu'
-                            ]
+class Marketplace:
+    def __init__(self, Marketplace: str):
+        self.__namemkp = Marketplace
+
+    def get_name(self) -> str:
+        return self.__namemkp
+
+    def __str__(self) -> str:
+        return f'''{self.__namemkp}'''
 
 class Category:
-    categories = [
-                'MOVEIS': 'Móveis',
-                'ELETRÔNICOS': 'Eletrônicos',
-                'MOBILE': 'Mobile'
-                ]
+    def __init__(self, Category: str, Marketplace: Marketplace):
+        self.__catmkp = Category
+        self.__parent = Marketplace
 
-class Subcategory(Category):
-    subcategories = [
-                    'MESA': 'Mesa',
-                    'ESCRIVANINHA': 'Escrivaninha',
-                    'TV': 'TV',
-                    'COMPUTADORES': 'Computadores',
-                    'CELULARES': 'Celulares',
-                    'TABLET': 'Tablet'
-                    ]
+    def get_name(self) -> str:
+        return self.__catmkp
+
+    def get_parentname(self) -> str:
+        return self.__parent.get_name()
+
+class Subcategory:
+    def __init__(self, Subcategory: str, Category: Category):
+        self.__subcat = Subcategory
+        self.__parent = Category
+
+    def get_subcat(self) -> str:
+        return self.__subcat
+
+    def get_parentname(self) -> str:
+        return self.__parent.get_name
+
+    
