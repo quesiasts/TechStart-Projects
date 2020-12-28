@@ -1,0 +1,6 @@
+Amazon;Móveis
+B2W;Móveis
+Zoom;Eletrodomésticos
+Via Varejo;Livraria
+B2W;Telefonia
+Mercado Livre;Livraria

@@ -1,8 +1,24 @@
-from marketplaces import Marketplace, Category, Subcategory
+from marketplaces import Marketplace, Category, Subcategory, Dados
 
-marketplaces = [Marketplace('Amazon'), Marketplace('B2W'), Marketplace('Mercado Livre'), Marketplace('Via Varejo'), Marketplace('Sair')]
-categorias = [Category('Móveis', marketplaces[1]), Category('Telefonia', marketplaces[0]), Category('Eletrodomésticos', marketplaces[1]), Category('Informática', marketplaces[1])]
-subcategorias = [Subcategory('Cama', categorias[0]), Subcategory('Cadeira', categorias[0]), Subcategory('Mesa', categorias[1])]
+marketplaces = []
+result_marketplaces = Dados.get_marketplaces()
+for i in result_marketplaces:
+    marketplaces.append(Marketplace(i['marketplaces']))
+
+categories = []
+result_categories = Dados.get_categories()
+for i in result_categories:
+    for j in marketplaces:
+        if i['marketplaces'] == j.get_name():
+            categories.append(Category(i['categories'], j))
+
+subcategories = []
+result_subcategories = Dados.get_subcategories()
+for i in result_subcategories:
+    for j in categories:
+        if i['categories'] == j.get_name():
+            subcategories.append(Subcategory(i['subcategories'], j))
+            break
 
 def menu(): 
 
