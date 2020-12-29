@@ -1,0 +1,5 @@
+Móveis;Cama
+Móveis;Mesa
+Eletrodomésticos;Microondas
+Eletrodomésticos;Fogão
+Telefonia;Apple

@@ -30,10 +30,10 @@ class Subcategory:
     def get_parentname(self) -> str:
         return self.__parent.get_name
 
-class Dados:
+class Data:
     def get_marketplaces():
         marketplaces = []
-        archive = open('marketplaces.txt', 'r') #r -> ler arquivo de texto
+        archive = open('dados/marketplace.txt', 'r')  #r -> ler arquivo de texto
         for i in archive:
             i = i.strip() #strip -> tirar o \n
             i = {'marketplace':i}
@@ -42,27 +42,27 @@ class Dados:
         return marketplaces
 
     def get_categories():
-        categorias = []
-        archive = open('dados/categorias.txt', 'r') 
+        categories = []
+        archive = open('dados/categories.txt', 'r') 
         for i in archive:
             i = i.strip()
             j = i.split(';') # split -> separar atributos com ponto e vírgula
-            i = {'categories': j[1],
-                'marketplaces': j[0]
+            i = {'categories':j[1],
+                'marketplaces':j[0]
             }
-            categorias.append(i)
+            categories.append(i)
         archive.close()
-        return categorias
+        return categories
 
-    def get_subcategories():
-        subcategorias = []
-        archive = open('dados/subcategorias.txt', 'r') 
+    def get_subcat():
+        subcat = []
+        archive = open('dados/subcategories.txt', 'r') 
         for i in archive:
             i = i.strip()
             j = i.split(';')
-            i = {'subcategorias': j[1],
-                'categories': j[0]
+            i = {'subcategories':j[1],
+                'categories':j[0]
             }
-            subcategories.append(i)
+            subcat.append(i)
         archive.close()
-        return subcategorias
+        return subcategories
