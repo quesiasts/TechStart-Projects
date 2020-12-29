@@ -1,3 +1,5 @@
+import os
+
 class Marketplace:
     def __init__(self, Marketplace: str):
         self.__namemkp = Marketplace
@@ -33,17 +35,19 @@ class Subcategory:
 class Data:
     def get_marketplaces():
         marketplaces = []
-        archive = open('dados/marketplace.txt', 'r')  #r -> ler arquivo de texto
+        dirName = os.chdir('//home//quesia//techStart//atv4//dados')
+        print(os.getcwd())
+        archive = open('marketplaces.txt', 'r')  #r -> ler arquivo de texto
         for i in archive:
             i = i.strip() #strip -> tirar o \n
-            i = {'marketplace':i}
+            i = {'marketplaces':i}
             marketplaces.append(i) #append -> adiciona sempre a ultima posição
         archive.close()
         return marketplaces
 
     def get_categories():
         categories = []
-        archive = open('dados/categories.txt', 'r') 
+        archive = open('categories.txt', 'r') 
         for i in archive:
             i = i.strip()
             j = i.split(';') # split -> separar atributos com ponto e vírgula
@@ -56,7 +60,7 @@ class Data:
 
     def get_subcat():
         subcat = []
-        archive = open('dados/subcategories.txt', 'r') 
+        archive = open('subcategories.txt', 'r') 
         for i in archive:
             i = i.strip()
             j = i.split(';')
@@ -65,4 +69,4 @@ class Data:
             }
             subcat.append(i)
         archive.close()
-        return subcategories
+        return subcat

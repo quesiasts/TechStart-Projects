@@ -15,14 +15,14 @@ result_cat = Data.get_categories()
 for i in result_cat:
     for j in marketplaces:
         if i['marketplaces'] == j.get_name():
-            categorias.append(Category(i['categoria'], j))
+            categorias.append(Category(i['categories'], j))
 
 subcategorias = []
 result_subcat = Data.get_subcat()
 for i in result_subcat:
     for j in categorias:
-        if i['categoria'] == j.get_name():
-            subcategorias.append(Subcategory(i['subcategoria'], j))
+        if i['categories'] == j.get_name():
+            subcategorias.append(Subcategory(i['subcategories'], j))
             break
 
 @app.route('/')

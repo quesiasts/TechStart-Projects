@@ -2,5 +2,4 @@ Amazon
 B2W
 Mercado Livre
 Via Varejo
-Zoom
-
+Sair
