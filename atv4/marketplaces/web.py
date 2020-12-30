@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 from marketplaces import Marketplace, Category, Subcategory, Data
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 marketplaces = []
 result_marketplaces = Data.get_marketplaces()

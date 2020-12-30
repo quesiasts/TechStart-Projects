@@ -69,8 +69,7 @@ while True:
                         for i in subcategories:
                             if i.get_parentname() == categories[0].get_name():
                                 print(f'\n{i.get_subcat()}')
-
-                        break
+                            break
                 except Exception as e: 
                     print(e)
                 
@@ -105,13 +104,13 @@ while True:
                 try:
                     if escolher_cat == 1:
                         for i in subcategories:
-                            if i.get_parentname() == categories[0].get_name():
+                            if i.get_parentname() == categories[1].get_name():
                                 print(f'\n{i.get_subcat()}')
-                        break
+                            break
                 except Exception as e: 
                     print(e)
                     break
-            
+
         elif op == 5:
             exit(0) #tentar alterar
         else:
