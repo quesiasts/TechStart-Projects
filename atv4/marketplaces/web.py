@@ -1,6 +1,6 @@
 # pip3 install flask
 # which pip3 -  caminho da instalacao do pip3
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from marketplaces import Marketplace, Category, Subcategory, Data
 
 app = Flask(__name__)
@@ -28,6 +28,23 @@ for i in result_subcat:
 @app.route('/')
 def index():
     return render_template('index.html', marketplaces = marketplaces)
+
+@app.route('/calcular')
+def calcular():
+    n1 = float(request.args.get('num1'))
+    n2 = float(request.args.get('num2'))
+    operacao = request.args.get('operacao')
+    if operacao == 'somar':
+        resultado = soma(n1, n2)
+    elif operacao == 'subtrair':
+        resultado = subtracao(n1, n2)
+    elif operacao == 'multiplicar':    
+        resultado = multiplicacao(n1, n2)
+    elif operacao == 'dividir':
+        resultado = divisao(n1, n2)
+    else:
+        return 'Operação invalida'
+    return f'O resultado da {operacao} entre {n1} e {n2} é {resultado}' 
 
 @app.route('/category/<marketplaces>')
 def category(marketplaces):

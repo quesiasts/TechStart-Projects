@@ -3,7 +3,7 @@
 {% block body %}
 <ol>
     {% for i in cat %}
-    {% if i.get_parentname() == mktplaces %}
+    {% if i.get_parentname() == marketplaces %}
     <li>
         <a href='/subcategory/{{i.get_name()}}'>{{i.get_name()}}</a>
     </li>
