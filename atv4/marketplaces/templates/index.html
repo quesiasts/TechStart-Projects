@@ -1,11 +1,14 @@
 {% extends 'template.html' %}
-
 {% block body %}
-<ol>
-    {% for i in marketplaces %}
-    <li>
-        <a href='/category/{{i.get_name()}}'>{{i}}</a>
-    </li>
-    {% endfor %}
-</ol>
+
+<form action="/cadastrar">
+    <label>Marketplaces: </label> <input type='text' name='text1' /> </br>
+    <label>Categoria: </label> <input type='text' name='text2' /> </br>
+    <label>Subcategorias: </label> <input type='text' name='text3' /> </br>
+
+    <!-- {% for i in marketplaces %}
+    {%  endfor %} -->
+    <br />
+    <input type='submit' value='Cadastrar' /> <br />
+</form>
 {% endblock %}

@@ -30,22 +30,16 @@ for i in result_subcat:
 def index():
     return render_template('index.html', marketplaces = marketplaces)
 
-@app.route('/calcular')
-def calcular():
-    n1 = float(request.args.get('num1'))
-    n2 = float(request.args.get('num2'))
+@app.route('/cadastrar')
+def listar():
+    text1 = str(request.args.get('text1'))
+    text2 = str(request.args.get('text2'))
+    text3 = str(request.args.get('text3'))
     operacao = request.args.get('operacao')
-    if operacao == 'somar':
-        resultado = soma(n1, n2)
-    elif operacao == 'subtrair':
-        resultado = subtracao(n1, n2)
-    elif operacao == 'multiplicar':    
-        resultado = multiplicacao(n1, n2)
-    elif operacao == 'dividir':
-        resultado = divisao(n1, n2)
+    if operacao == 'listar':
+        resultado = operacao(text1, text2, text3)
     else:
-        return 'Operação invalida'
-    return f'O resultado da {operacao} entre {n1} e {n2} é {resultado}' 
+        return f'O Marketplace cadastrado foi: {text1} / Categoria: {text2} / Subcategoria: {text3}' 
 
 @app.route('/category/<marketplaces>')
 def category(marketplaces):
