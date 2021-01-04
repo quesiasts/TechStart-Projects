@@ -1,4 +1,5 @@
 import os
+import datetime
 
 class Marketplace:
     def __init__(self, Marketplace: str):
@@ -35,7 +36,7 @@ class Subcategory:
 class Data:
     def get_marketplaces():
         marketplaces = []
-        dirName = os.chdir('//home//quesia//techStart//atv4//dados')
+        dirName = os.chdir('//home//quesia//techStart//atv4//backend//dados')
         print(os.getcwd())
         archive = open('marketplaces.txt', 'r')  #r -> ler arquivo de texto
         for i in archive:
@@ -70,3 +71,12 @@ class Data:
             subcat.append(i)
         archive.close()
         return subcat
+
+    def logs(acao):
+        logs = []
+        archive = open('logs.txt', 'a')
+        l = datetime.datetime.now()
+        l = l.strftime("%d /%m /%y access the %H:%M h/m.")
+        archive.write(f'{l} {acao}\n')
+        archive.close()
+        return logs

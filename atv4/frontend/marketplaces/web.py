@@ -1,5 +1,7 @@
 # pip3 install flask
 # which pip3 -  caminho da instalacao do pip3
+import sys
+sys.path.append('atv4')
 from flask import Flask, render_template, request
 from marketplaces import Marketplace, Category, Subcategory, Data
 
