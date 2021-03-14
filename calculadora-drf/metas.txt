@@ -1,0 +1,13 @@
+- método de somar:
+    somar dois números
+    ter testes:
+        - verificar se são int
+        - verificar aceita float
+        
+- método dividir:
+    dividir dois números
+    ter testes:
+        - não poder dividir com 0
+        - aceitar números (int ou float)
+        
+
